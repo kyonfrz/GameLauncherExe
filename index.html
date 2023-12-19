@@ -1,79 +1,126 @@
 <!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2023 by anonymous (http://jsbin.com/naqasufiwu/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Guess the number.Exh</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #000 url(https://media.giphy.com/media/9bXjoBk28pwnKLKoKb/giphy.gif) no-repeat center center fixed;
-      -webkit-background-size: cover;
-      -moz-background-size: cover;
-      -o-background-size: cover;
-      background-size: cover;
-      text-align: center; 
-    }
-    .neonText {
-      font-size: 50px;
-      color: #ffffff;
-      text-shadow:
+    <title>Guess the number.Exh</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #000 url(https://media.giphy.com/media/9bXjoBk28pwnKLKoKb/giphy.gif) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        .neonText {
+            font-size: 50px;
+            color: #ffffff;
+            text-shadow:
+                0 0 5px #ff1493,
+                0 0 10px #ff1493,
+                0 0 15px #ff1493,
+                0 0 20px #ff1493,
+                0 0 30px #ff1493,
+                0 0 40px #ff1493;
+            animation: flicker 1.5s infinite;
+        }
+        @keyframes flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow:
+                    0 0 4px #ff1493,
+                    0 0 11px #ff1493,
+                    0 0 19px #ff1493,
+                    0 0 40px #ff1493,
+                    0 0 80px #ff1493,
+                    0 0 90px #ff1493,
+                    0 0 100px #ff1493,
+                    0 0 150px #ff1493;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+       
+    </style>
+<style id="jsbin-css">
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.neonText {
+    font-size: 50px;
+    color: #ffffff;
+    text-shadow:
         0 0 5px #ff1493,
         0 0 10px #ff1493,
         0 0 15px #ff1493,
         0 0 20px #ff1493,
         0 0 30px #ff1493,
         0 0 40px #ff1493;
-      animation: flicker 1.5s infinite;
-    }
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    animation: flicker 1.5s infinite;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
         text-shadow:
-          0 0 4px #ff1493,
-          0 0 11px #ff1493,
-          0 0 19px #ff1493,
-          0 0 40px #ff1493,
-          0 0 80px #ff1493,
-          0 0 90px #ff1493,
-          0 0 100px #ff1493,
-          0 0 150px #ff1493;
-      }
-      20%, 24%, 55% {
+            0 0 4px #ff1493,
+            0 0 11px #ff1493,
+            0 0 19px #ff1493,
+            0 0 40px #ff1493,
+            0 0 80px #ff1493,
+            0 0 90px #ff1493,
+            0 0 100px #ff1493,
+            0 0 150px #ff1493;
+    }
+    20%, 24%, 55% {
         text-shadow: none;
-      }
     }
-    #userInput {
-      background-color: white; 
-    }
-  </style>
+}
+</style>
 </head>
 <body>
   <h1 class="neonText">The game you did not expect to find here X_X </h1>
-  <p class="texto-rosado">Guess a number between 1 and 200 and win something or lose your soul.</p>
-  <input id="userInput" type="number" min="1" max="200">
-  <button onclick="checkGuess()">don't dare if you're not sure</button>
-  <p id="hint" class="texto-rosado"></p>
-  <img id="resultImage" style="display: none;">
-  <script>
-    var secretNumber = Math.floor(Math.random() * 200) + 1;
+    <p class="texto-rosado">Guess a number between 1 and 200 and win something or lose your soul.</p>
+    <input id="userInput" type="number" min="1" max="200">
+    <button onclick="checkGuess()">don't dare if you're not sure</button>
+    <p id="hint" class="texto-rosado"></p>
+    <img id="resultImage" style="display: none;">
+    <script>
+        var secretNumber = Math.floor(Math.random() * 200) + 1;
 
-    function checkGuess() {
-      var userInput = document.getElementById('userInput').value;
-      var hint = document.getElementById('hint');
-      var resultImage = document.getElementById('resultImage');
+        function checkGuess() {
+            var userInput = document.getElementById('userInput').value;
+            var hint = document.getElementById('hint');
+            var resultImage = document.getElementById('resultImage');
 
-      if (userInput < secretNumber) {
-        hint.textContent = 'too low. I did not expect anything from you .';
-        resultImage.style.display = 'none';
-      } else if (userInput > secretNumber) {
-        hint.textContent = 'too high . dont think you are anything special for going up so high .';
-        resultImage.style.display = 'none';
-      } else {
-        hint.textContent = 'congratulations for getting this far now continue with your boring life. What do you expect from this game Im not rockstar games  ' + secretNumber;
-        resultImage.src = 'https://preview.redd.it/282qwfdv3jj81.jpg?width=824&format=pjpg&auto=webp&s=904d30e5475bb419a747867a2abeeeed6a6882a3';
-        resultImage.style.display = 'block';
-      }
-    }
-  </script>
+            if (userInput < secretNumber) {
+                hint.textContent = 'too low. I did not expect anything from you .';
+                resultImage.style.display = 'none';
+            } else if (userInput > secretNumber) {
+                hint.textContent = 'too high . dont think you are anything special for going up so high .';
+                resultImage.style.display = 'none';
+            } else {
+                hint.textContent = 'congratulations for getting this far now continue with your boring life. What do you expect from this game Im not rockstar games  ' + secretNumber;
+                resultImage.src = 'https://preview.redd.it/282qwfdv3jj81.jpg?width=824&format=pjpg&auto=webp&s=904d30e5475bb419a747867a2abeeeed6a6882a3';
+                resultImage.style.display = 'block';
+            }
+        }
+    </script>
 </body>
 </html>
 
