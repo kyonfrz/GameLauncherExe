@@ -1,0 +1,40 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #000 url(https://media.giphy.com/media/9bXjoBk28pwnKLKoKb/giphy.gif) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center; /* Añade esta línea para centrar el texto */
+}
+.neonText {
+  font-size: 50px;
+  color: #ffffff;
+  text-shadow:
+    0 0 5px #ff1493,
+    0 0 10px #ff1493,
+    0 0 15px #ff1493,
+    0 0 20px #ff1493,
+    0 0 30px #ff1493,
+    0 0 40px #ff1493;
+  animation: flicker 1.5s infinite;
+}
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow:
+      0 0 4px #ff1493,
+      0 0 11px #ff1493,
+      0 0 19px #ff1493,
+      0 0 40px #ff1493,
+      0 0 80px #ff1493,
+      0 0 90px #ff1493,
+      0 0 100px #ff1493,
+      0 0 150px #ff1493;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+#userInput {
+  background-color: white; /* Esta línea cambia el color del botón */
+}
